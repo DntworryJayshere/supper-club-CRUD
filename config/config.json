@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "root",
-    "database": "exampledb",
+    "database": "sequelize_EBAY",
     "host": "localhost",
     "dialect": "mysql"
   },

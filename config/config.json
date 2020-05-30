@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "root",
-    "password": null,
-    "database": "exampledb",
+    "password": "root",
+    "database": "supperClubDev",
     "host": "localhost",
     "dialect": "mysql"
   },
@@ -10,7 +10,7 @@
     "username": "root",
     "password": null,
     "database": "testdb",
-    "host": "localhost",
+    "host": "supperClubTest",
     "dialect": "mysql",
     "logging": false
   },

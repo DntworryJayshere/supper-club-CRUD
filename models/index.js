@@ -53,115 +53,115 @@ Menu.sync();
 
 //=================================================================================================================
 
-class Dish extends Model { }
-Dish.init({
-    // attributes
-    name: {
-        type: DataTypes.STRING,
-        allowNull: false,
-    },
-    desc: {
-        type: DataTypes.STRING,
-        allowNull: false,
-    },
-    rating: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        validate: {
-            min: 1,
-            max: 5,
-            len: 1
-        }
-    }
-}, {
-    sequelize,
-    modelName: 'dish'
-    // options
-});
+// class Dish extends Model { }
+// Dish.init({
+//     // attributes
+//     name: {
+//         type: DataTypes.STRING,
+//         allowNull: false,
+//     },
+//     desc: {
+//         type: DataTypes.STRING,
+//         allowNull: false,
+//     },
+//     rating: {
+//         type: DataTypes.INTEGER,
+//         allowNull: false,
+//         validate: {
+//             min: 1,
+//             max: 5,
+//             len: 1
+//         }
+//     }
+// }, {
+//     sequelize,
+//     modelName: 'dish'
+//     // options
+// });
 
-Dish.sync();
+// Dish.sync();
 
-//=================================================================================================================
+// //=================================================================================================================
 
-class Ingredient extends Model { }
-Ingredient.init({
-    // attributes
-    name: {
-        type: DataTypes.STRING,
-        allowNull: false,
-    },
-    desc: {
-        type: DataTypes.STRING,
-        allowNull: false,
-    }
-}, {
-    sequelize,
-    modelName: 'ingredient'
-    // options
-});
+// class Ingredient extends Model { }
+// Ingredient.init({
+//     // attributes
+//     name: {
+//         type: DataTypes.STRING,
+//         allowNull: false,
+//     },
+//     desc: {
+//         type: DataTypes.STRING,
+//         allowNull: false,
+//     }
+// }, {
+//     sequelize,
+//     modelName: 'ingredient'
+//     // options
+// });
 
-Ingredient.sync();
-
-
-//=================================================================================================================
-
-class User extends Model { }
-User.init({
-    // attributes
-    firstName: {
-        type: DataTypes.STRING,
-        allowNull: false,
-    },
-    lastName: {
-        type: DataTypes.STRING,
-        allowNull: false,
-    },
-    email: {
-        type: DataTypes.STRING,
-        allowNull: false,
-    },
-    phone: {
-        type: DataTypes.STRING,
-        allowNull: false,
-    },
-    rating: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        validate: {
-            min: 1,
-            max: 5,
-            len: 1
-        }
-    }
-}, {
-    sequelize,
-    modelName: 'user'
-    // options
-});
+// Ingredient.sync();
 
 
-User.sync();
+// //=================================================================================================================
 
-//=================================================================================================================
+// class User extends Model { }
+// User.init({
+//     // attributes
+//     firstName: {
+//         type: DataTypes.STRING,
+//         allowNull: false,
+//     },
+//     lastName: {
+//         type: DataTypes.STRING,
+//         allowNull: false,
+//     },
+//     email: {
+//         type: DataTypes.STRING,
+//         allowNull: false,
+//     },
+//     phone: {
+//         type: DataTypes.STRING,
+//         allowNull: false,
+//     },
+//     rating: {
+//         type: DataTypes.INTEGER,
+//         allowNull: false,
+//         validate: {
+//             min: 1,
+//             max: 5,
+//             len: 1
+//         }
+//     }
+// }, {
+//     sequelize,
+//     modelName: 'user'
+//     // options
+// });
 
-class Group extends Model { }
-Group.init({
-    // attributes
-    name: {
-        type: DataTypes.STRING,
-        allowNull: false,
-    },
-    desc: {
-        type: DataTypes.STRING,
-        allowNull: false,
-    },
-}, {
-    sequelize,
-    modelName: 'group'
-    // options
-});
 
-Group.sync();
+// User.sync();
+
+// //=================================================================================================================
+
+// class Group extends Model { }
+// Group.init({
+//     // attributes
+//     name: {
+//         type: DataTypes.STRING,
+//         allowNull: false,
+//     },
+//     desc: {
+//         type: DataTypes.STRING,
+//         allowNull: false,
+//     },
+// }, {
+//     sequelize,
+//     modelName: 'group'
+//     // options
+// });
+
+// Group.sync();
 
 //=================================================================================================================
 

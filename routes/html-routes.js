@@ -4,7 +4,7 @@ module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
     db.models.menu.findAll({}).then(function(dbMenus) {
-      res.render("menu", {
+      res.render("index", {
         msg: "Welcome!",
         menu: dbMenus
       });

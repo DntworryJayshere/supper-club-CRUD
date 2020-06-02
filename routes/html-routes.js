@@ -3,8 +3,8 @@ var db = require("../models");
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
-    db.Menu.findAll({}).then(function(dbMenus) {
-      res.render("index", {
+    db.models.menu.findAll({}).then(function(dbMenus) {
+      res.render("menu", {
         msg: "Welcome!",
         menu: dbMenus
       });
@@ -13,7 +13,7 @@ module.exports = function(app) {
 
   // Load example page and pass in an example by id
   app.get("/menu/:id", function(req, res) {
-    db.Menu.findOne({ where: { id: req.params.id } }).then(function(dbMenu) {
+    db.models.menu.findOne({ where: { id: req.params.id } }).then(function(dbMenu) {
       res.render("menu", {
         menu: dbMenu
       });

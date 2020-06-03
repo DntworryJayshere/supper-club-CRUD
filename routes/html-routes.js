@@ -6,46 +6,37 @@ module.exports = function(app) {
   app.get("/", function(req, res) {
     db.models.menu.findAll({})
     .then(menus => {
-      console.log(menus)
-      res.sendStatus(200);
+      console.table(menus)
+      
+      res.render("index", {
+        msg: "Welcome!",
+        menus: menus
+      });
+
     })
     .catch(err => console.log(err));
   });
-
-  app.get("/add", (req, res) => {
-    var data = {
-      category: "Dinner",
-      desc: "An ok menu"
-    }
-
-    let { category, desc} = data;
-
-    db.models.menu.create({
-      category,
-      desc
-    })
-    .then(menu => res.redirect("/menus"))
-    .catch(err)
-  });
-  
-
 
   // app.get("/", function(req, res) {
   //   db.models.menu.findAll({}).then(function(dbMenus) {
   //     res.render("index", {
   //       msg: "Welcome!",
-  //       menu: dbMenus
+  //       menus: dbMenus
   //     });
   //   });
   // });
 
   // Load example page and pass in an example by id
   app.get("/menu/:id", function(req, res) {
-    db.models.menu.findOne({ where: { id: req.params.id } }).then(function(dbMenu) {
+    db.models.menu.findOne({ where: { id: req.params.id } })
+    .then(menu => {
+      console.log(menu)
+
       res.render("menu", {
-        menu: dbMenu
+        msg: "XX!",
+        menu: menu
       });
-    });
+    })
   });
 
   // Render 404 page for any unmatched routes

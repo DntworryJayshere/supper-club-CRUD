@@ -10,16 +10,7 @@ var env = process.env.NODE_ENV || "development";
 var config = require(__dirname + "/../config/config.json")[env];
 
 if (config.use_env_variable) {
-var sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USERNAME, process.env.DB_PASSWORD, {
-  host: "localhost",
-  port: 3306,
-  dialect: "mysql",
-  pool: {
-    max: 5,
-    min: 0,
-    idle: 10000
-  }
-});
+  var sequelize = new Sequelize(process.env[config.use_env_variable]);
 } else {
   var sequelize = new Sequelize(
     config.database,
@@ -28,7 +19,6 @@ var sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USERNAME, proc
     config
   );
 }
-
 
 //=================================================================================================================
 

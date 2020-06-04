@@ -22,8 +22,12 @@ app.engine(
 app.set("view engine", "handlebars");
 
 // Routes
-require("./routes/api-routes")(app);
-require("./routes/html-routes")(app);
+require("./routes/dish-api-routes")(app);
+require("./routes/ingredient-api-routes")(app);
+require("./routes/menu-api-routes")(app);
+require("./routes/dish-html-routes")(app);
+require("./routes/ingredient-html-routes")(app);
+require("./routes/menu-html-routes")(app);
 
 db.authenticate()
 .then(() => console.log("database connected"))

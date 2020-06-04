@@ -17,27 +17,6 @@ module.exports = function(app) {
     .catch(err => console.log(err));
   });
 
-
-  //for use to temporarily add data to the database
-  // app.get("/add", (req, res) => {
-  //   var data = {
-  //     name: "Blueberry Buttermilk Pancakes",
-  //     desc: "These buttermilk pancakes are perfect: Not too sweet and loaded with blueberries in every. single. bite.",
-  //     rating: "3"
-  //   }
-
-  //   let { name, desc, rating } = data;
-    
-  //   db.models.dish.create({
-  //     name, 
-  //     desc,
-  //     rating
-  //   })
-  //   .then(dish => res.redirect("/"))
-  //   .catch(err => console.log(err))
-  // });
-
-
   // Load menu page and pass in an example by id
   app.get("/menu/:id", function(req, res) {
     db.models.menu.findOne({ where: { id: req.params.id } })

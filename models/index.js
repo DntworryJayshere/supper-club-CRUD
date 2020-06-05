@@ -58,6 +58,26 @@ Dish.init({
     type: DataTypes.STRING,
     allowNull: false,
   },
+  prepTime: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  totalTime: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  yield: {
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
+  instructions: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  ingredients: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
   rating: {
     type: DataTypes.INTEGER,
     allowNull: false,
@@ -77,24 +97,28 @@ Dish.sync();
 
 // //=================================================================================================================
 
-class Ingredient extends Model { }
-Ingredient.init({
-  // attributes
-  name: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  desc: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  }
-}, {
-  sequelize,
-  modelName: 'ingredient'
-  // options
-});
+// class Ingredient extends Model { }
+// Ingredient.init({
+//   // attributes
+//   name: {
+//     type: DataTypes.STRING,
+//     allowNull: false,
+//   },
+//   quantity: {
+//     type: DataTypes.STRING,
+//     allowNull: false,
+//   },
+//   desc: {
+//     type: DataTypes.STRING,
+//     allowNull: false,
+//   }
+// }, {
+//   sequelize,
+//   modelName: 'ingredient'
+//   // options
+// });
 
-Ingredient.sync();
+// Ingredient.sync();
 
 
 // //=================================================================================================================

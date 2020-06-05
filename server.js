@@ -3,9 +3,7 @@ var express = require("express");
 var exphbs = require("express-handlebars");
 
 var db = require('./models');
-
 var app = express();
-
 var PORT = process.env.PORT || 8080;
 
 app.use(express.urlencoded({ extended: false }));
@@ -22,11 +20,10 @@ app.engine(
 app.set("view engine", "handlebars");
 
 // Routes
-require("./routes/dish-api-routes")(app);
-require("./routes/ingredient-api-routes")(app);
+
+app.get('/', (req, res) => res.render('index', { layout: 'landing' }));
+
 require("./routes/menu-api-routes")(app);
-require("./routes/dish-html-routes")(app);
-require("./routes/ingredient-html-routes")(app);
 require("./routes/menu-html-routes")(app);
 
 db.authenticate()

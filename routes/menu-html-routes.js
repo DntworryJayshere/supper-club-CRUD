@@ -3,19 +3,20 @@ var db = require("../models");
 module.exports = function(app) {
  
   // Get menu list
-  app.get("/", function(req, res) {
+  app.get("/menu", function(req, res) {
     db.models.menu.findAll({})
     .then(menus => {
       console.table(menus)
       
-      res.render("index", {
-        msg: "Welcome!",
+      res.render("menu", {
         menus: menus
       });
 
     })
     .catch(err => console.log(err));
   });
+
+  app.get('/menu/add', (req, res) => res.render('add'));
 
   // Load menu page and pass in an example by id
   app.get("/menu/:id", function(req, res) {
@@ -24,7 +25,6 @@ module.exports = function(app) {
       console.log(menu)
 
       res.render("menu", {
-        msg: "Menu Page!",
         menu: menu
       });
     })

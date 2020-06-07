@@ -36,14 +36,14 @@ Menu.init({
   desc: {
     type: DataTypes.STRING,
     allowNull: false,
-  }
+  },
 }, {
   sequelize,
   modelName: 'menu'
   // options
 });
 
-Menu.sync();
+// Menu.sync();
 
 //=================================================================================================================
 
@@ -74,10 +74,6 @@ Dish.init({
     type: DataTypes.STRING,
     allowNull: false,
   },
-  ingredients: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
   rating: {
     type: DataTypes.INTEGER,
     allowNull: false,
@@ -93,33 +89,27 @@ Dish.init({
   // options
 });
 
-Dish.sync();
-
 // //=================================================================================================================
 
-// class Ingredient extends Model { }
-// Ingredient.init({
-//   // attributes
-//   name: {
-//     type: DataTypes.STRING,
-//     allowNull: false,
-//   },
-//   quantity: {
-//     type: DataTypes.STRING,
-//     allowNull: false,
-//   },
-//   desc: {
-//     type: DataTypes.STRING,
-//     allowNull: false,
-//   }
-// }, {
-//   sequelize,
-//   modelName: 'ingredient'
-//   // options
-// });
+class Ingredient extends Model { }
+Ingredient.init({
+  // attributes
+  list: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  }
+}, {
+  sequelize,
+  modelName: 'ingredient'
+  // options
+});
 
-// Ingredient.sync();
+Menu.Dishes = Menu.hasMany(Dish);
+Dish.Ingredient = Dish.belongsTo(Ingredient);
 
+Menu.sync();
+Dish.sync();
+Ingredient.sync();
 
 // //=================================================================================================================
 

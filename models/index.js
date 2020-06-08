@@ -104,8 +104,8 @@ Ingredient.init({
   // options
 });
 
-Menu.Dishes = Menu.hasMany(Dish);
-Dish.Ingredient = Dish.belongsTo(Ingredient);
+Menu.Dishes = Menu.hasMany(Dish, {though: "MenuDishes"});
+Dish.Ingredient = Dish.belongsTo(Ingredient, {though: "DishIngredients"});
 
 Menu.sync();
 Dish.sync();
@@ -174,3 +174,4 @@ Group.sync();
 //=================================================================================================================
 
 module.exports = sequelize;
+

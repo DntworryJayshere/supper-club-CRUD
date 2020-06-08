@@ -5,7 +5,7 @@ db.sync({ force: true }).then(function () {
     name: "Jay's favorite menu",
     category: "Dinner",
     desc: "hand crafted to perfection",
-    dish: [{
+    dishes: [{
       name: "Cacio e Pepe Potato Gnocchi",
       desc: "Homemade potato gnocchi is surprisingly easy to make and the dough is a dream to work with. Unlike pasta, there's no resting or labored rolling involved. It's as simple as roasting a few potatoes and mixing everything together.",
       prepTime: "10 mins",
@@ -31,8 +31,8 @@ db.sync({ force: true }).then(function () {
     }]
   }, {
     include: [{
-      association: [db.models.Menu.Dishes],
-      include: [db.models.Dish.Ingredient]
+      association: [db.models.menu.dishes],
+      include: [db.models.dish.ingredient]
     }]
   }).then(function () {
     console.log("Did it!")

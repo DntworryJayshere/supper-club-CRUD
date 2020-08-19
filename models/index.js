@@ -113,63 +113,63 @@ Ingredient.sync();
 
 // //=================================================================================================================
 
-class User extends Model { }
-User.init({
-  // attributes
-  firstName: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  lastName: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  email: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  phone: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  rating: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-    validate: {
-      min: 1,
-      max: 5,
-      len: 1
-    }
-  }
-}, {
-  sequelize,
-  modelName: 'user'
-  // options
-});
+// class User extends Model { }
+// User.init({
+//   // attributes
+//   firstName: {
+//     type: DataTypes.STRING,
+//     allowNull: false,
+//   },
+//   lastName: {
+//     type: DataTypes.STRING,
+//     allowNull: false,
+//   },
+//   email: {
+//     type: DataTypes.STRING,
+//     allowNull: false,
+//   },
+//   phone: {
+//     type: DataTypes.STRING,
+//     allowNull: false,
+//   },
+//   rating: {
+//     type: DataTypes.INTEGER,
+//     allowNull: false,
+//     validate: {
+//       min: 1,
+//       max: 5,
+//       len: 1
+//     }
+//   }
+// }, {
+//   sequelize,
+//   modelName: 'user'
+//   // options
+// });
 
 
-User.sync();
+// User.sync();
 
 // //=================================================================================================================
 
-class Group extends Model { }
-Group.init({
-  // attributes
-  name: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  desc: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-}, {
-  sequelize,
-  modelName: 'group'
-  // options
-});
+// class Group extends Model { }
+// Group.init({
+//   // attributes
+//   name: {
+//     type: DataTypes.STRING,
+//     allowNull: false,
+//   },
+//   desc: {
+//     type: DataTypes.STRING,
+//     allowNull: false,
+//   },
+// }, {
+//   sequelize,
+//   modelName: 'group'
+//   // options
+// });
 
-Group.sync();
+// Group.sync();
 
 //=================================================================================================================
 

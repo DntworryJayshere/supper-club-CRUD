@@ -1,7 +1,8 @@
 // Get references to page elements
-var $menuCategory = $("#menu-category");
-var $menuDescription = $("#menu-description");
-var $submitBtn = $("#submit");
+var $menuName = $("#name");
+var $menuCategory = $("#category");
+var $menuDescription = $("#desc");
+var $submitBtn = $("#menuSubmit");
 var $menuList = $("#menu-list");
 
 // The API object contains methods for each kind of request we'll make
@@ -35,7 +36,9 @@ var refreshMenus = function() {
   API.getMenus().then(function(data) {
     var $menus = data.map(function(menu) {
       var $a = $("<a>")
+        .text(menu.name)
         .text(menu.category)
+        .text(menu.desc)
         .attr("href", "/menu/" + menu.id);
 
       var $li = $("<li>")
@@ -65,6 +68,7 @@ var handleFormSubmit = function(event) {
   event.preventDefault();
 
   var menu = {
+    name: $menuName.val().trim(),
     category: $menuCategory.val().trim(),
     description: $menuDescription.val().trim()
   };
@@ -78,6 +82,7 @@ var handleFormSubmit = function(event) {
     refreshMenus();
   });
 
+  $menuName.val().trim(),
   $menuCategory.val("");
   $menuDescription.val("");
 };

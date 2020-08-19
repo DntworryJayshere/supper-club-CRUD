@@ -8,6 +8,7 @@ module.exports = function(app) {
     });
   });
 
+  
   // Create a new example
   app.post("/api/menus", function(req, res) {
     db.models.menu.create(req.body).then(function(dbMenu) {

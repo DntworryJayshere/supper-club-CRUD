@@ -1,40 +1,31 @@
-require("dotenv").config();
 var express = require("express");
-var exphbs = require("express-handlebars");
-
-var db = require('./models');
+require("dotenv").config();
 var app = express();
 var PORT = process.env.PORT || 8080;
+var db = require('./models');
+const routes = require('./routes');
 
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
-app.use(express.static("public"));
+//init middleware
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json({ extended: false }));
 
-// Handlebars
-app.engine(
-  "handlebars",
-  exphbs({
-    defaultLayout: "main"
-  })
-);
-app.set("view engine", "handlebars");
+// Serve static assets in production
+if (process.env.NODE_ENV === 'production') {
+	// Set static folder
+	app.use(express.static('client/build'));
+}
 
-// Routes
+// Add routes, both API and view
+app.use(routes);
 
-app.get('/', (req, res) => res.render('index', { layout: 'landing' }));
-
-require("./routes/menu-api-routes")(app);
-require("./routes/menu-html-routes")(app);
-
+//connect to db
 db.authenticate()
 .then(() => console.log("database connected"))
 .catch(err => console.log("error "+err))
-// Starting the server, syncing our models ------------------------------------/
 
+// Starting the server, syncing our models ------------------------------------/
 db.sync().then(function(){
-  app.listen(PORT, function() {
-    console.log("App listening on PORT " + PORT);
-  });
+  app.listen(PORT, () => console.log('Server started on port' + PORT));
 });
 
 module.exports = app;

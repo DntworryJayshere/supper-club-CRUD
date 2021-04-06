@@ -2,40 +2,42 @@ class Dish extends Model {}
 Dish.init(
 	{
 		// attributes
-		name: {
+		step_1: {
 			type: DataTypes.STRING,
 			allowNull: false,
 		},
-		description: {
+		step_2: {
 			type: DataTypes.STRING,
 			allowNull: false,
 		},
-		prepTime: {
+		step_3: {
 			type: DataTypes.STRING,
-			allowNull: false,
 		},
-		totalTime: {
+		step_4: {
 			type: DataTypes.STRING,
-			allowNull: false,
 		},
-		yield: {
+		step_5: {
 			type: DataTypes.STRING,
-			allowNull: true,
 		},
-		servings: {
-			type: DataTypes.INTEGER,
-			allowNull: true,
+		step_6: {
+			type: DataTypes.STRING,
 		},
-		yield: {
-			type: DataTypes.INTEGER,
-			allowNull: true,
+		step_7: {
+			type: DataTypes.STRING,
+		},
+		step_8: {
+			type: DataTypes.STRING,
+		},
+		step_9: {
+			type: DataTypes.STRING,
+		},
+		step_10: {
+			type: DataTypes.STRING,
 		},
 	},
 	{
 		sequelize,
-		modelName: 'dish',
+		modelName: 'directions',
 		// options
 	}
 );
-
-Dish.sync();

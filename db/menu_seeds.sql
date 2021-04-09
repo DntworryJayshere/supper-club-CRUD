@@ -1,0 +1,4 @@
+INSERT INTO menu (name, category, short_description, description) VALUES 
+('Jays favorites', 'American', 'Lorem Ipsum is simply dummy.', 'Lorem Ipsum has been the printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into remaining essentially unchanged.'),
+('The Classico', 'Italian', 'Lorem Ipsum is simply dummy 2.', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, readable English.'),
+('Mia"s" menu', 'Barbeque','There are many of Lorem Ipsum have', 'Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for lorem ipsum will uncover many web sites still in by accident, sometimes on purpose (injected humour and the like).');

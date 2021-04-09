@@ -1,6 +1,5 @@
-class Ingredient extends Model {}
-Ingredient.init(
-	{
+module.exports = (sequelize, DataTypes) => {
+	const Ingredient = sequelize.define('ingredient', {
 		// attributes
 		name: {
 			type: DataTypes.STRING,
@@ -10,7 +9,7 @@ Ingredient.init(
 			type: DataTypes.STRING,
 			allowNull: false,
 		},
-		quanitity: {
+		quantity: {
 			type: DataTypes.INTEGER,
 			allowNull: false,
 		},
@@ -20,13 +19,18 @@ Ingredient.init(
 		},
 		measurment_descriptor: {
 			type: DataTypes.STRING,
+			allowNull: true,
 		},
-	},
-	{
-		sequelize,
-		modelName: 'ingredient',
-		// options
-	}
-);
+		dish_fk_id: {
+			type: DataTypes.INTEGER,
+			references: {
+				// This is a reference to another model
+				model: Dish,
+				// This is the column name of the referenced model
+				key: 'id',
+			},
+		},
+	});
 
-Ingredient.sync();
+	return Ingredient;
+};

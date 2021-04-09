@@ -1,6 +1,5 @@
-class Dish extends Model {}
-Dish.init(
-	{
+module.exports = (sequelize, DataTypes) => {
+	const Dish = sequelize.define('dish', {
 		// attributes
 		name: {
 			type: DataTypes.STRING,
@@ -10,32 +9,32 @@ Dish.init(
 			type: DataTypes.STRING,
 			allowNull: false,
 		},
-		prepTime: {
+		prep_time: {
 			type: DataTypes.STRING,
 			allowNull: false,
 		},
-		totalTime: {
+		total_time: {
 			type: DataTypes.STRING,
 			allowNull: false,
-		},
-		yield: {
-			type: DataTypes.STRING,
-			allowNull: true,
 		},
 		servings: {
 			type: DataTypes.INTEGER,
-			allowNull: true,
+			allowNull: false,
 		},
 		yield: {
-			type: DataTypes.INTEGER,
-			allowNull: true,
+			type: DataTypes.STRING,
+			allowNull: false,
 		},
-	},
-	{
-		sequelize,
-		modelName: 'dish',
-		// options
-	}
-);
+		menu_fk_id: {
+			type: DataTypes.INTEGER,
+			references: {
+				// This is a reference to another model
+				model: Menu,
+				// This is the column name of the referenced model
+				key: 'id',
+			},
+		},
+	});
 
-Dish.sync();
+	return Dish;
+};

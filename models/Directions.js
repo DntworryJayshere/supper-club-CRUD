@@ -1,43 +1,24 @@
-class Dish extends Model {}
-Dish.init(
-	{
+module.exports = (sequelize, DataTypes) => {
+	const Directions = sequelize.define('directions', {
 		// attributes
-		step_1: {
+		order_number: {
+			type: DataTypes.INTEGER,
+			allowNull: false,
+		},
+		description: {
 			type: DataTypes.STRING,
 			allowNull: false,
 		},
-		step_2: {
-			type: DataTypes.STRING,
-			allowNull: false,
+		dish_fk_id: {
+			type: DataTypes.INTEGER,
+			references: {
+				// This is a reference to another model
+				model: Dish,
+				// This is the column name of the referenced model
+				key: 'id',
+			},
 		},
-		step_3: {
-			type: DataTypes.STRING,
-		},
-		step_4: {
-			type: DataTypes.STRING,
-		},
-		step_5: {
-			type: DataTypes.STRING,
-		},
-		step_6: {
-			type: DataTypes.STRING,
-		},
-		step_7: {
-			type: DataTypes.STRING,
-		},
-		step_8: {
-			type: DataTypes.STRING,
-		},
-		step_9: {
-			type: DataTypes.STRING,
-		},
-		step_10: {
-			type: DataTypes.STRING,
-		},
-	},
-	{
-		sequelize,
-		modelName: 'directions',
-		// options
-	}
-);
+	});
+
+	return Directions;
+};
